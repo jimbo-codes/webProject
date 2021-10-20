@@ -55,9 +55,9 @@
       textarea {
         /* Align multiline text fields with their labels */
         vertical-align: top;
-      
+        resize: none;
         /* Provide space to type some text */
-        height: 2em;
+        height: 1.5em;
       }
       
       .button {
@@ -134,9 +134,38 @@ html {
     -ms-flex: 1;
     flex: 1;
 }
-textarea {
-  resize: none;
+input#name, input#msg, input#mail, input#phone{
+  font-size: 14px;
 }
+input{
+  font-size: 14px;
+  height: 1.5em;
+  text-align: top;
+}
+label{
+  margin-bottom: -15px;
+}
+textarea{
+  font-size: 14px;
+  text-align: top;
+  height: 2.5em;
+}
+
+#agree{
+  margin-right: -130px;
+  font-size: 10px;
+}
+input[type="checkbox"]{
+margin-left: -25px;
+height: 1.5em;
+}
+label[for="checkbox"]{
+  white-space: nowrap;
+  font-size: 11px;
+  margin-left: -15px;
+  vertical-align: top;
+}
+
 
 </style>
       <!-- <link rel="stylesheet" href="style.css" /> -->
@@ -149,29 +178,41 @@ textarea {
           <div class="menu"><nav role="navigation" class="navigation-items w-nav-menu">
               <!-- signup placeholder <a href="/onboarding/register" class="button cc-contact-us w-inline-block"> <div class="text-block-4">Get Started</div></a>-->
             </div>
-            <div class="menu-button w-nav-button" style="-webkit-user-select: text;" aria-label="menu" role="button" tabindex="0" aria-controls="w-nav-overlay-0" aria-haspopup="menu" aria-expanded="false"><img src="https://uploads-ssl.webflow.com/60db6a5d83483f6c439ef100/60db6a5d83483f28cc9ef125_menu-icon.png" width="22" alt="" class="menu-icon"></div></div><div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-0"></div></div>
+            <div class="menu-button w-nav-button" style="-webkit-user-select: text;" aria-label="menu" role="button" aria-controls="w-nav-overlay-0" aria-haspopup="menu" aria-expanded="false"><img src="https://uploads-ssl.webflow.com/60db6a5d83483f6c439ef100/60db6a5d83483f28cc9ef125_menu-icon.png" width="22" alt="" class="menu-icon"></div></div><div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-0"></div></div>
 
     <h1>Brennan, fill out this form or else.</h1>
     <script src="script.js"></script>
 
 <form action="/my-handling-form-page" method="post">
-    <ul>
+  <!-- instead of making a UL, could make individual div's-->  
+  <ul>
      <li>
        <label for="name">Name:</label>
-       <input type="text" id="name" name="user_name">
+       <input type="text" id="name" name="user_name" class="form" required placeholder="Terrible Name" taxbindex="0">
      </li>
      <li>
        <label for="mail">E-mail:</label>
-       <input type="email" id="mail" name="user_email">
+       <input type="email" id="mail" class="form" name="user_email" required placeholder="Email" taxbindex="1">
      </li>
      <li>
+      <label for="number">Phone:</label>
+      <input id="phone" name="user_phone" class ="form" required placeholder="516-111-1111"></textarea>
+    </li>
+     <li>
        <label for="msg">Message:</label>
-       <textarea id="msg" name="user_message"></textarea>
+       <textarea id="msg" name="user_message" required placeholder="You really shouldn't have anything to say here."></textarea>
      </li>
-    <li class="button">
+
+     
+
+     <div class="form-box" data-errormsg=""></div>
+     <input  type="checkbox" name="checkbox" value="check" id="agree" required /> 
+     <label for="checkbox">I agree to lete you name my firstborn child</label>
+     <li class="button">
         <button type="button">Send your message</button>
-      </li>
-    </ul>
+    </li>
+  </ul>
+
 </form>
 
 </body>
