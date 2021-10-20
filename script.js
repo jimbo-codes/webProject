@@ -2,7 +2,7 @@
 //h2.textContent = "This content added by JavaScript";
 //document.querySelector("body").appendChild(h2);
 
-//testing mac can commit
+//testing mac can commit once again
 
 // idea - I want to create a basic form fillout website (contact info to sign for mailing list)
 
