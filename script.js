@@ -1,5 +1,17 @@
 const element = document.getElementById("#name");
-
+let y = true;
+function checkInputnum(ob){
+    var invalidChars = /[^0-9]/gi
+            if(invalidChars.test(ob.value)) {
+                    ob.value = ob.value.replace(invalidChars,"");
+          }
+};
+function checkInputalph(ob){
+    var invalidChars = /[^a-z]/gi
+            if(invalidChars.test(ob.value)) {
+                    ob.value = ob.value.replace(invalidChars,"");
+          }
+        };
 const checker = function(){
     var test = document.getElementsByClassName("check")
     let inputs = Array.from(test); // converts nodelist (returned by getElementsByClassName) into an array
@@ -10,16 +22,14 @@ const checker = function(){
 
             if(x.querySelector("input").value === "check"){
                 if(x.querySelector("input").checked){
-                    console.log("nothing to see here!");
             } else{
-                    console.log("it's a checkbox!!!");
                     const checkers = document.createElement("span");
                     checkers.setAttribute("class", "err")
                     checkers.setAttribute("id", "checkbox")
                     const text2 = document.createTextNode("* Required");
                     checkers.appendChild(text2);
                     x.appendChild(checkers);
-                    
+                    y = false;
                 }
             } else if(x.querySelector("input").value === ""){
                 const flag = document.createElement("span");
@@ -27,11 +37,12 @@ const checker = function(){
                 flag.setAttribute("class", "err")
                 flag.appendChild(text);
                 x.appendChild(flag);
+                y = false;
             }
             else{
-        console.log('nothing!')
+        console.log('nothing')
             }
-        }
+       }
 }
 
 /*
@@ -66,12 +77,18 @@ function removeElementsByClass(className){
 const submit = function(){
 // if(truth){
     //delete by err class
+    console.log(y);
     removeElementsByClass("err");
     checker();
-    //redirect to new page?
-    // also add a "click me for a surprise"
+    console.log(y);
+if(y=true){
+    console.log(y);
 }
+else{
+    document.getElementById("form-user").submit;
 
+}
+}
 
 // This has to go AFTER you've defined the function.
     const button = document.getElementById('button');

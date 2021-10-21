@@ -189,22 +189,22 @@ span{
 
     <h1>Brennan, fill out this form or else.</h1>
 
-<form action="/my-handling-form-page" method="post" name="form">
+<form action="/my-handling-form-page" method="post" name="form" id="form-user">
   <!-- instead of making a UL, could make individual div's-->  
   
   <ul>
      <li class = "check" id="start">
        <label id= "nameid"for="name">Name:</label>
-       <input type="text" id="name" name="user_name" class="form" required placeholder="Terrible Name" taxbindex="0">
+       <input type="text" id="name" name="user_name" class="form" onChange="checkInputalph(this)" onKeyup="checkInputalph(this)" required placeholder="Terrible Name" taxbindex="0">
      </li>
      <li class = "check" >
        <label for="mail">E-mail:</label>
-       <input class = "2" type="email" id="mail" class="form" name="user_email" required placeholder="Email" taxbindex="1">
+       <input class = "2" type="email" onChange="checkInputalph(this)" onKeyup="checkInputalph(this)"id="mail" class="form" name="user_email" required placeholder="Email" taxbindex="1">
      </li>
 
      <li>
       <label for="number">Phone:</label>
-      <input class = "2" id="phone" name="user_phone" class ="form" placeholder="516-111-1111"></textarea>
+      <input onChange="checkInputnum(this)" onKeyup="checkInputnum(this)" class = "2" id="phone" name="user_phone" class ="form" placeholder="516-111-1111"></textarea>
     </li>
 
      <li>
