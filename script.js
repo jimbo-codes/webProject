@@ -9,42 +9,38 @@
 const element = document.getElementById("#name");
 
 const checker = function(){
-//const inputFeilds = document.querySelectorAll("input");
-//const validInputs = Array.from(inputFeilds).filter( input => input.value !== "");
-//console.log(validInputs) //[array with valid inputs]
-
-// get element by class, log all into the array and then run a for in loop to aappend * required
 var test = document.getElementsByClassName("check")
-
-// this returns a nodelist objectS - you now need to figure out how you can loop through these objs to test if empty
 let inputs = Array.from(test); // converts nodelist (returned by getElementsByClassName) into an array
-
-/*
-for (var i = 0; i < inputs.length; ++i) {
-    if (x[i].value == "") {
-        ++empty;
-        // tell it to pull array value, use the answer from that to specify the input there
-    }
-}
-*/
-
-//AFTER THIS LOOP GOES - Loop a check to make sure that we SHOULD be adding text
-
-// This loops through and sets
-console.log(inputs);
 for( let i =0; i < inputs.length; i++){
-const flag = document.createElement("span");
-const text = document.createTextNode("* Required");
-    flag.appendChild(text);
+    // if test here in the loop, for each element. nested if for checkbox
     let x = inputs[i];
-  x.appendChild(flag);
-// Needs to now test each of these, and an exception handler
-// for the checkbox
+    let inputlist = x.querySelectorAll('input');
+//console.log(x.querySelector("input").value);
+    let arrayo = Object.values(inputlist);
+
+    console.log(x.querySelector("input").checked);
+if(x.querySelector("input").value === "check"){
+    if(x.querySelector("input").checked){
+    console.log("nothing to see here!");
+} else{
+    console.log("it's a checkbox!!!");
+    const checkers = document.createElement("span");
+    checkers.setAttribute("id", "checkbox")
+    const text2 = document.createTextNode("* Required");
+    checkers.appendChild(text2);
+    x.appendChild(checkers);
 }
-
-//let id = document.[inputs[i]]
-
-
+} else if(x.querySelector("input").value === ""){
+    const flag = document.createElement("span");
+    const text = document.createTextNode("* Required");
+    flag.appendChild(text);
+    x.appendChild(flag);
+}
+else{
+console.log('nothing!')
+}
+}
+}
 
 /*
 if (id.hasChildNodes()) {
@@ -69,7 +65,6 @@ if (id.hasChildNodes()) {
 else{
     console.log("errr");
 */
-}
 const submit = function(){
 // if(truth){
     checker();
