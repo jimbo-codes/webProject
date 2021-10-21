@@ -1,45 +1,37 @@
-//const h2 = document.createElement("h2");
-//h2.textContent = "This content added by JavaScript";
-//document.querySelector("body").appendChild(h2);
-
-//const init = function(){
-  //  document.getElementById('button').addEventListener('click', submit);
-//}
-//document.addEventListener('DOMContentLoaded', init);
 const element = document.getElementById("#name");
 
 const checker = function(){
-var test = document.getElementsByClassName("check")
-let inputs = Array.from(test); // converts nodelist (returned by getElementsByClassName) into an array
-for( let i =0; i < inputs.length; i++){
-    // if test here in the loop, for each element. nested if for checkbox
-    let x = inputs[i];
-    let inputlist = x.querySelectorAll('input');
-//console.log(x.querySelector("input").value);
-    let arrayo = Object.values(inputlist);
+    var test = document.getElementsByClassName("check")
+    let inputs = Array.from(test); // converts nodelist (returned by getElementsByClassName) into an array
+    for( let i =0; i < inputs.length; i++){
+            let x = inputs[i];
+            let inputlist = x.querySelectorAll('input');
+            let arrayo = Object.values(inputlist);
 
-    console.log(x.querySelector("input").checked);
-if(x.querySelector("input").value === "check"){
-    if(x.querySelector("input").checked){
-    console.log("nothing to see here!");
-} else{
-    console.log("it's a checkbox!!!");
-    const checkers = document.createElement("span");
-    checkers.setAttribute("id", "checkbox")
-    const text2 = document.createTextNode("* Required");
-    checkers.appendChild(text2);
-    x.appendChild(checkers);
-}
-} else if(x.querySelector("input").value === ""){
-    const flag = document.createElement("span");
-    const text = document.createTextNode("* Required");
-    flag.appendChild(text);
-    x.appendChild(flag);
-}
-else{
-console.log('nothing!')
-}
-}
+            if(x.querySelector("input").value === "check"){
+                if(x.querySelector("input").checked){
+                    console.log("nothing to see here!");
+            } else{
+                    console.log("it's a checkbox!!!");
+                    const checkers = document.createElement("span");
+                    checkers.setAttribute("class", "err")
+                    checkers.setAttribute("id", "checkbox")
+                    const text2 = document.createTextNode("* Required");
+                    checkers.appendChild(text2);
+                    x.appendChild(checkers);
+                    
+                }
+            } else if(x.querySelector("input").value === ""){
+                const flag = document.createElement("span");
+                const text = document.createTextNode("* Required");
+                flag.setAttribute("class", "err")
+                flag.appendChild(text);
+                x.appendChild(flag);
+            }
+            else{
+        console.log('nothing!')
+            }
+        }
 }
 
 /*
@@ -65,27 +57,19 @@ if (id.hasChildNodes()) {
 else{
     console.log("errr");
 */
+function removeElementsByClass(className){
+    const elements = document.getElementsByClassName(className);
+    while(elements.length > 0){
+        elements[0].parentNode.removeChild(elements[0]);
+    }
+}
 const submit = function(){
 // if(truth){
+    //delete by err class
+    removeElementsByClass("err");
     checker();
-//    const reqmark = document.createElement("span");
- //   const text = document.createTextNode("* Required");
-  //  reqmark.appendChild(text);  
-  // document.getElementById("start").appendChild(reqmark);
-  
-  
-  
-  
-  // Make this a loop where it goes through by each element - recursive function?
-  // call the "checker" function for each element, and have it run through the above process
-
-  //}
-  
-
-
-/* else{
-    alert("throwing an error");
-} */
+    //redirect to new page?
+    // also add a "click me for a surprise"
 }
 
 
